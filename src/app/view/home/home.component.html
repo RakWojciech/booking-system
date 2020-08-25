@@ -1,1 +1,83 @@
-<p>home works!</p>
+<div class="container mx-auto flex items-center justify-between mt-3" *ngIf="hotelList">
+
+	<div class="w-full rounded overflow-hidden  browser">
+		<div class="w-full bg-white shadow-lg rounded" *ngFor="let hotel of hotelList.data">
+			<div class="flex flex-wrap md:flex-no-wrap">
+<!--				<img src="./assets/hotel.jpg" class="h-40 w-40 m-6" alt="">-->
+				<div style="background-image: url('./assets/hotel.jpg'); background-size: cover;" class="h-40 w-full md:w-56 m-6">
+
+				</div>
+				<div class="pl-3 pr-6 py-6 w-full">
+					<div class="flex flex-wrap">
+						<h2 class="text-2xl text-center md:text-left text-dark mb-3 mr-1">
+							{{hotel.hotel.name}}
+						</h2>
+						<div *ngFor="let count of [].constructor(+hotel.hotel.rating)">
+							<sup><svg viewBox="0 0 20 20" fill="currentColor" class="star w-6 h-6"><path fill="gold" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></sup>
+						</div>
+					</div>
+					<div class="grid grid-cols-1 text-center md:text-left md:grid-cols-3">
+						<div>
+							<p class="text-grey text-xs">
+								<ngx-fa name="map" class="pr-1"></ngx-fa>
+								ADDRESS:
+							</p>
+							<p class="mb-4 text-dark">
+								{{hotel.hotel.address.lines ? hotel.hotel.address.lines : 'Brak'}}
+							</p>
+							<p class="text-grey text-xs">
+								<ngx-fa name="phone" class="pr-1"></ngx-fa>
+								TELEPHONE:
+							</p>
+							<p class="mb-4 text-dark">
+								{{hotel.hotel.contact.phone ? hotel.hotel.contact.phone : 'Brak'}}
+							</p>
+						</div>
+						<div>
+							<p class="text-grey text-xs">
+								<ngx-fa name="user" class="pr-1"></ngx-fa>
+								OCCUPPANCY:
+							</p>
+							<p class="mb-4 text-dark">
+								{{form.passangerCount ? form.passangerCount : 'Brak'}}
+							</p>
+							<p class="text-grey text-xs">
+								<ngx-fa name="money" class="pr-1"></ngx-fa>
+								BALANCE:
+							</p>
+							<p class="mb-4 text-dark">
+								{{(hotel.offers[0].price.total * (form.passangerCount > 0 ? form.passangerCount : 1)) + ' ' + hotel.offers[0].price.currency ? ((hotel.offers[0].price.total | number:'1.0-0') * (form.passangerCount > 0 ? form.passangerCount : 1)) + ' ' + hotel.offers[0].price.currency : 'Brak'}}
+							</p>
+						</div>
+						<div>
+							<p class="text-grey text-xs">
+								<ngx-fa name="calendar" class="pr-1"></ngx-fa>
+								ARRIVAL DATE:
+							</p>
+							<p class="mb-4 text-dark">
+								{{form.departTime ? form.departTime : 'Brak'}}
+							</p>
+							<p class="text-grey text-xs">
+								<ngx-fa name="calendar" class="pr-1"></ngx-fa>
+								RETURN DATE:
+							</p>
+							<p class="mb-4 text-dark">
+								{{form.returnTime ? form.returnTime : 'Brak'}}
+							</p>
+						</div>
+					</div>
+					<div class="w-full flex items-end justify-end">
+						<button class="text-xs bg-blue-500 hover:bg-blue-700 text-white font-normal p-2 rounded-b-lg/2
+								focus:outline-none focus:shadow-outline text-center" id="form-button" type="submit"
+								(click)="onSubmit()">
+							Book this place!
+						</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<hr class="w-full h-6">
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400&family=Merienda+One&display=swap');
+
+#grid-first-name, #grid-second-name, #grid-email, #grid-phone-number, #grid-phone-number {
+	//padding-left: 2.50rem;
+}
+#submit-form {
+	background-color: theme('colors.dark');
+
+	#form-button {
+		background-color: transparent;
+		&:active, &:focus {
+			box-shadow: none;
+		}
+	}
+}
+
+h2 {
+	font-family: theme('fontFamily.contactHeader');
+}

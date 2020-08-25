@@ -1,0 +1,25 @@
+.search {
+	background-image: url('../../../assets/background.jpg') !important;
+	background-size: cover;
+}
+.browser {
+	background-color: theme('colors.white');
+	.header {
+		h2 {
+			font-family: theme('fontSize.serif');
+		}
+	}
+	#grid-leaving-from, #grid-going-to, #grid-depart, #grid-return, #grid-class, #grid-passanger {
+		padding-left: 2.50rem;
+	}
+	#submit-form {
+		background-color: theme('colors.dark');
+		#form-button {
+			background-color: transparent;
+			&:active, &:focus {
+				box-shadow: none;
+			}
+		}
+	}
+
+}

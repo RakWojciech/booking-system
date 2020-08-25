@@ -1,0 +1,63 @@
+<div class="mx-auto h-screen search flex flex-wrap items-center justify-center">
+	<div class="w-full flex flex-wrap items-center justify-between">
+		<div class="w-full flex items-center justify-center">
+			<div class="w-full rounded overflow-hidden browser flex items-center justify-center">
+				<div class="w-2/3"> <!-- px-6 py-4 -->
+					<h2 class="text-center text-4xl">Feel free to contact with us!</h2>
+					<form class="w-full" [formGroup]="contactForm" (submit)="onSubmit()">
+						<div class="px-6 py-4">
+							<div class="flex flex-wrap -mx-3 mt-3 mb-2">
+								<div class="w-full md:w-1/2 px-3 relative flex items-center mb-3">
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+									<input
+										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+										id="grid-first-name" type="text" formControlName="firstName" placeholder="First Name">
+								</div>
+								<div class="w-full md:w-1/2 px-3 relative flex items-center mb-3">
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+									<input
+										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+										id="grid-second-name" type="text" formControlName="lastName" placeholder="Second Name">
+								</div>
+							</div>
+							<div class="flex flex-wrap -mx-3 mt-3 mb-2">
+								<div class="w-full px-3 flex flex-wrap items-center mb-3">
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+									<input [class.border-red-500]="contactForm.get('email').invalid && contactForm.get('email').touched"
+										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+										id="grid-email" type="text" formControlName="email" placeholder="Email">
+									<div *ngIf="(email.invalid && email.touched) || email.dirty">
+										<small *ngIf="email.errors?.required" class="text-danger">Email is required</small>
+										<small *ngIf="email.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+									</div>
+								</div>
+								<div class="w-full md:w-full px-3 relative flex items-center mb-3">
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+									<input
+										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+										id="grid-phone-number" type="text" formControlName="phoneNumber" placeholder="Phone Number">
+								</div>
+								<div class="w-full md:w-full px-3 relative flex items-center mb-3">
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+									<textarea
+										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+										id="grid-phone-number" type="text" formControlName="phoneNumber" placeholder="Your message..."></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="flex flex-wrap -mx-3 px-6 py-4">
+							<div class="w-full px-3 relative flex items-center">
+								<div class="w-full px-3 flex items-center" id="submit-form">
+									<button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-normal py-4 px-4 rounded-b-lg/2 focus:outline-none focus:shadow-outline text-center" id="form-button" type="submit">
+										SEND MESSAGE
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

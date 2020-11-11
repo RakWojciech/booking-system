@@ -9,17 +9,17 @@
 			</a>
 		</div>
 	</nav>
-	<div class="w-full flex flex-wrap items-center justify-between">
-		<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-x-6">
-			<div class="max-w-sm rounded overflow-hidden max-w-2xl flex items-center justify-center">
-				<div class="header"> <!-- px-6 py-4 -->
-					<h2 class="font-bold text-dark text-6xl">Find the best</h2>
-					<h2 class="font-bold text-dark text-5xl">hotel for <u>you</u>!</h2>
+	<div class="flex justify-center items-center w-full">
+		<div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-6 m-4">
+			<div class="rounded overflow-hidden flex items-center justify-center">
+				<div class="header w-full"> <!-- px-6 py-4 -->
+					<h2 class="font-bold text-dark text-5xl sm:text-6xl">Find the best</h2>
+					<h2 class="font-bold text-dark text-4xl sm:text-5xl">hotel for <u>you</u>!</h2>
 				</div>
 			</div>
-			<div class="row-end-auto max-w-sm rounded overflow-hidden shadow-lg browser max-w-2xl">
-				<div class=""> <!-- px-6 py-4 -->
-					<form class="w-full" [formGroup]="placeSearchForm" (submit)="onSubmit()">
+			<div class="row-end-auto rounded overflow-hidden shadow-lg browser mt-6 lg:mt-0">
+				<div class="h-full "> <!-- px-6 py-4 -->
+					<form class="w-full flex justify-between flex-col h-full" [formGroup]="placeSearchForm" (submit)="onSubmit()">
 						<div class="px-6 py-4">
 							<div class="flex flex-wrap -mx-3">
 								<div class="w-full px-3 relative flex items-center mb-3">
@@ -30,66 +30,66 @@
 								</div>
 							</div>
 							<div class="mb-3" *ngIf="(placeSearchForm.get('goingToPlace').invalid)"><small class="text-red-500">Sorry, we don't have this city in our city list</small></div>
-							<div class="flex flex-wrap -mx-3 mt-3 mb-2">
-								<div class="w-full md:w-1/2 px-3 relative flex items-center mb-3">
-									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-									<input
-										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-										id="grid-depart" type="date" formControlName="departTime" placeholder="Depart">
-								</div>
-								<div class="w-full md:w-1/2 px-3 relative flex items-center mb-3">
-									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-									<input
-										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-										id="grid-return" type="date" formControlName="returnTime" placeholder="Return">
-								</div>
-							</div>
-							<div class="flex flex-wrap -mx-3 mb-2">
-								<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-									<div class="relative flex items-center mb-3">
-										<svg viewBox="0 0 20 20" fill="currentColor" class="user w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-										<select
-											class="text-xs block appearance-none w-full bg-gray-200 border border-gray-200 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-											id="grid-passanger" formControlName="passangerCount">
-											<option>Choose here</option>
-											<option value="1">1 passanger</option>
-											<option value="2">2 passanger</option>
-											<option value="3">3 passanger</option>
-											<option value="4">4 passanger</option>
-											<option value="4+">4+ passanger</option>
-										</select>
-										<div
-											class="text-xs pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-											<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-												 viewBox="0 0 20 20">
-												<path
-													d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-											</svg>
-										</div>
-									</div>
-								</div>
-								<div class="w-full md:w-1/2 px-3">
-									<div class="relative flex items-center mb-3">
-										<svg viewBox="0 0 20 20" fill="currentColor" class="star w-6 h-6 absolute mx-3"><path color="#4a5568" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-										<select
-											class="text-xs block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-											id="grid-class" formControlName="placeClass">
-											<option>Economy class</option>
-											<option>Standard class</option>
-											<option>Standard+ class</option>
-											<option>Premium class</option>
-										</select>
-										<div
-											class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-											<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-												 viewBox="0 0 20 20">
-												<path
-													d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-											</svg>
-										</div>
-									</div>
-								</div>
-							</div>
+<!--							<div class="flex flex-wrap -mx-3 mt-3 mb-2">-->
+<!--								<div class="w-full md:w-1/2 px-3 relative flex items-center mb-3">-->
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+<!--									<input-->
+<!--										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"-->
+<!--										id="grid-depart" type="date" formControlName="departTime" placeholder="Depart">-->
+<!--								</div>-->
+<!--								<div class="w-full md:w-1/2 px-3 relative flex items-center mb-3">-->
+<!--									<svg viewBox="0 0 20 20" fill="currentColor" class="calendar w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>-->
+<!--									<input-->
+<!--										class="text-xs appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"-->
+<!--										id="grid-return" type="date" formControlName="returnTime" placeholder="Return">-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="flex flex-wrap -mx-3 mb-2">-->
+<!--								<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">-->
+<!--									<div class="relative flex items-center mb-3">-->
+<!--										<svg viewBox="0 0 20 20" fill="currentColor" class="user w-6 h-6 absolute mx-3"><path color="#4a5568" fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>-->
+<!--										<select-->
+<!--											class="text-xs block appearance-none w-full bg-gray-200 border border-gray-200 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"-->
+<!--											id="grid-passanger" formControlName="passangerCount">-->
+<!--											<option>Choose here</option>-->
+<!--											<option value="1">1 passanger</option>-->
+<!--											<option value="2">2 passanger</option>-->
+<!--											<option value="3">3 passanger</option>-->
+<!--											<option value="4">4 passanger</option>-->
+<!--											<option value="4+">4+ passanger</option>-->
+<!--										</select>-->
+<!--										<div-->
+<!--											class="text-xs pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">-->
+<!--											<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"-->
+<!--												 viewBox="0 0 20 20">-->
+<!--												<path-->
+<!--													d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>-->
+<!--											</svg>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="w-full md:w-1/2 px-3">-->
+<!--									<div class="relative flex items-center mb-3">-->
+<!--										<svg viewBox="0 0 20 20" fill="currentColor" class="star w-6 h-6 absolute mx-3"><path color="#4a5568" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>-->
+<!--										<select-->
+<!--											class="text-xs block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"-->
+<!--											id="grid-class" formControlName="placeClass">-->
+<!--											<option>Economy class</option>-->
+<!--											<option>Standard class</option>-->
+<!--											<option>Standard+ class</option>-->
+<!--											<option>Premium class</option>-->
+<!--										</select>-->
+<!--										<div-->
+<!--											class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">-->
+<!--											<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"-->
+<!--												 viewBox="0 0 20 20">-->
+<!--												<path-->
+<!--													d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>-->
+<!--											</svg>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 						</div>
 						<div class="flex flex-wrap -mx-3">
 							<div class="w-full px-3 relative flex items-center">

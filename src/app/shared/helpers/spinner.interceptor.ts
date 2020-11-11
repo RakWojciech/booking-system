@@ -12,13 +12,11 @@ export class SpinnerInterceptor implements HttpInterceptor {
 		return next.handle(req).pipe(
 			map( event => {
 				//show spinner
-				console.log('Show interceptor')
 				this.loader.show();
 				return event;
 			}),
 			finalize( () => {
 				//hide spinner
-				console.log('Hide interceptor')
 				this.loader.hide();
 			})
 		)

@@ -23,29 +23,36 @@ export class HomeSearchComponent implements OnInit {
 
 	constructor(private router: Router, public nav: NavbarService, public city: CitiesService, public loader: LoaderService) {
 		this.url = this.router.url;
+		console.log(this.url);
 		if (this.url === '/') {
 			this.nav.hide();
 		}
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
 
-	onSubmit(): void {
+		// this.nav.currentUserValue.subscribe(
+		// 	token => console.log(token)
+		// )
+		// console.log(this.access_token);
+	}
+	onSubmit() {
 		this.loader.show();
 		this.cities = this.city.getCities();
 		const entries = Object.entries(this.cities);
-		const form = JSON.parse(localStorage.getItem('form'));
+		let form = JSON.parse(localStorage.getItem('form'));
 		if (form) {
 			localStorage.removeItem('form');
 		}
 		localStorage.setItem('form', JSON.stringify(this.placeSearchForm.value));
 
-		for (const [key, value] of entries) {
+		for (let [key, value] of entries) {
 			let cityName = this.placeSearchForm.value.goingToPlace;
-			const cityNameFirstLetter = cityName.toUpperCase().charAt(0);
+			let cityNameFirstLetter = cityName.toUpperCase().charAt(0);
 			cityName = cityName.substr(1);
 			cityName = cityNameFirstLetter + cityName;
 			if ( cityName === value) {
+				// this.nav.searchForPlace.next(key);
 				this.router.navigateByUrl('home/' + key);
 			} else {
 				this.placeSearchForm.controls['goingToPlace'].setErrors({ 'incorrect': true});

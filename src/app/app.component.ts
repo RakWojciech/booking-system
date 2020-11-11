@@ -13,6 +13,6 @@ export class AppComponent {
 	constructor(public loader: LoaderService, public nav: NavbarService) {}
 
 	ngOnInit() {
-		this.nav.retrieveToken();
+		// this.nav.retrieveToken();
 	}
 }

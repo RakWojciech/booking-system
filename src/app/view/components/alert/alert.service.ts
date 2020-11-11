@@ -10,12 +10,9 @@ export class AlertService {
 
 	show() {
 		this.showAlert.next(true);
-
-		console.log('Show');
 	}
 
 	hide() {
 		this.showAlert.next(false);
-		console.log('Hide');
 	}
 }
